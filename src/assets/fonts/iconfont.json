@@ -1,0 +1,58 @@
+{
+  "id": "2169485",
+  "name": "sk_template",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14593322",
+      "name": "hide",
+      "font_class": "hide",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "15610168",
+      "name": "icon_calendar",
+      "font_class": "icon_calendar",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "15610177",
+      "name": "icon_instruments",
+      "font_class": "icon_instruments",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "15610178",
+      "name": "icon_shopfloor",
+      "font_class": "icon_shopfloor",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "15610179",
+      "name": "icon_language",
+      "font_class": "icon_language",
+      "unicode": "e6b2",
+      "unicode_decimal": 59058
+    },
+    {
+      "icon_id": "16730240",
+      "name": "dashboard_focus",
+      "font_class": "dashboard_focus",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "16731469",
+      "name": "actions",
+      "font_class": "actions1",
+      "unicode": "e6f3",
+      "unicode_decimal": 59123
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[*.{js,jsx,ts,tsx,vue}]
+indent_size = 0
+trim_trailing_whitespace = false
+insert_final_newline = false

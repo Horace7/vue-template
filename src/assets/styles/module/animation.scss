@@ -1,0 +1,28 @@
+.slide-zoom-enter-active {
+  transition: all .1s ease;
+}
+.slide-zoom-leave-active {
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-zoom-enter, .slide-zoom-leave-to {
+  // transform: translateY(0px);
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  // opacity: 0.5;
+}
+.slide-fade-enter-active, .slide-fade-leave-active {/*vue的transition自带动画特效*/
+  transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(300px);
+  // opacity: 0;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: all .3s ease;
+}
+.slide-enter, .slide-leave-to
+/* .slide-leave-active for below version 2.1.8 */ {
+  transform: translateY(0);
+  // opacity: 0;
+}
