@@ -21,7 +21,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .no-data {
     text-align: center;
     position: absolute;

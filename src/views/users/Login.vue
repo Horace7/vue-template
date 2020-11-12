@@ -9,8 +9,6 @@
     <div class="login-content">
       <div class="login-content_left">
         <div class="login-left_img">
-          <i class="login-logo"></i>
-          <i class="login-name"></i>
         </div>
       </div>
       <div class="login-content_right">
@@ -37,14 +35,14 @@
               </el-input>
             </el-form-item>
             <el-form-item prop="pwd">
-              <el-input v-model="ruleForm.pwd" :type="passType" placeholder="请输入密码">
-                <i class="iconfont icon-hide" v-show="passType === 'password'" style="cursor:pointer;" @click="passType = 'text'" slot="suffix"></i>
-                <i class="el-icon-view" v-show="passType === 'text'" style="cursor:pointer;" @click="passType = 'password'" slot="suffix"></i>
+              <el-input v-model="ruleForm.pwd" :type="pwdType" placeholder="请输入密码">
+                <i class="iconfont icon-hide" v-show="pwdType === 'password'" style="cursor:pointer;" @click="passType = 'text'" slot="suffix"></i>
+                <i class="el-icon-view" v-show="pwdType === 'text'" style="cursor:pointer;" @click="pwdType = 'password'" slot="suffix"></i>
               </el-input>
             </el-form-item>
             <el-form-item>
-              <el-checkbox v-model="checkedPass" style="color:#a0a0a0;">{{ $t(`commons.autoLogin`) }}</el-checkbox>
-              <div class="forget-password" @click="forgotPass">{{ $t(`commons.forget`) }}</div>
+              <el-checkbox v-model="checkedPwd" style="color:#a0a0a0;">{{ $t(`commons.autoLogin`) }}</el-checkbox>
+              <div class="forget-password" @click="forgotPwd">{{ $t(`commons.forget`) }}</div>
             </el-form-item>
             <el-form-item>
               <el-button class="login-btn" @click="login('accountSettingsForm')">{{ $t(`commons.login`) }}</el-button>
@@ -72,7 +70,7 @@ export default {
         callback()
       }
     }
-    const validatePass = (rule, value, callback) => {
+    const validatePwd = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请输入密码'))
       } else {
@@ -95,12 +93,12 @@ export default {
         username: ''
       },
       areaCode: '1',
-      passType: 'password',
+      pwdType: 'password',
       showLoading: true,
-      checkedPass: false,
+      checkedPwd: false,
       codeTime: 59, // 发送验证码倒计时
       sendMsgDisabled: false, // 是否显示获取验证码按钮
-      imgUrl: require('../../assets/images/login.jpg'),
+      imgUrl: require('../../assets/images/login-bg.jpg'),
       ruleForm: {
         mobile: '18888178807',
         pwd: '123456',
@@ -110,7 +108,7 @@ export default {
       },
       rules: {
         email: [{ validator: checkEmail, trigger: 'change' }],
-        pwd: [{ validator: validatePass, trigger: 'change' }],
+        pwd: [{ validator: validatePwd, trigger: 'change' }],
         mobile: [{ validator: checkTel, trigger: 'change' }]
       },
       langList: [
@@ -144,8 +142,8 @@ export default {
   },
   methods: {
     // 忘记密码
-    forgotPass () {
-      this.$router.push({ path: '/forgotPass' })
+    forgotPwd () {
+      this.$router.push({ path: '/forgotPwd' })
     },
     // 获取短信验证码
     async getMessageCode () {
@@ -197,7 +195,7 @@ export default {
           let password = encrypt(this.ruleForm.pwd)
           password = password.toUpperCase()
 
-          this.$store.dispatch('Login', { data: { ...this.ruleForm, pwd: password }, isKeep: this.checkedPass }).then((res) => {
+          this.$store.dispatch('Login', { data: { ...this.ruleForm, pwd: password }, isKeep: this.checkedPwd }).then((res) => {
             console.log(res)
             if (res) {
               this.showLoading = false
@@ -232,7 +230,7 @@ export default {
             this.accountSettingsForm.verificationCode = arr2[1]
           }
         }
-        this.checkedPass = true
+        this.checkedPwd = true
       }
     },
     // 清除cookie
@@ -248,7 +246,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .login-content{
     width: 60%;
     height: 500px;
@@ -271,7 +269,6 @@ export default {
         height: 200px;
         margin: 150px auto 0;
         .login-logo {
-          background-image: url('../../assets/svg/login-logo.svg');
           width: 60px;
           height: 60px;
           float: left;
@@ -282,7 +279,6 @@ export default {
           width: 200px;
           height: 20px;
           float: left;
-          background-image: url('../../assets/svg/login-name.svg');
           background-size: cover;
           margin-top: 30px;
         }

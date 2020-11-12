@@ -13,7 +13,7 @@ const zh = {
     autoLogin: '自动登录'
   },
   index: {
-    title: '统计分析平台'
+    title: 'Admin-temp'
   }
 }
 

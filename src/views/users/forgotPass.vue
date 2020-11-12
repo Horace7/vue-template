@@ -1,5 +1,5 @@
 <template>
-  <div class="forgot-pass">
+  <div class="forgot-pwd">
     <div class="logo"></div>
     <div class="title">重置密码</div>
     <div class="content-wrap">
@@ -7,7 +7,7 @@
         <el-form-item v-show="activeIndex === 0" prop="mobile">
           <el-input v-model="ruleForm.mobile" auto-complete="off" placeholder="请输入手机号">
             <el-select class="el-select_code" slot="prepend" v-model="ruleForm.countrycode" placeholder="请选择">
-              <el-option v-for="(usernameCode, index) in codeList" :label="usernameCode.label" :value="usernameCode.value" :key="index"></el-option>
+              <el-option v-for="(usernameCode, index) in codeList" :label="usernameCode.label" :value="usernameCode.value" :key="index" />
             </el-select>
           </el-input>
         </el-form-item>
@@ -18,15 +18,15 @@
             <span v-if="sendMsgDisabled">{{codeTime+'秒后获取'}}</span>
           </el-button>
         </el-form-item>
-        <el-form-item prop="newPass">
-          <el-input v-model="ruleForm.newPass" type="password" placeholder="新密码" maxlength="16"></el-input>
+        <el-form-item prop="newPwd">
+          <el-input v-model="ruleForm.newPwd" type="password" placeholder="新密码" maxlength="16"></el-input>
         </el-form-item>
-        <el-form-item prop="confirmPass">
-          <el-input v-model="ruleForm.confirmPass" type="password" placeholder="确认新密码" maxlength="16"></el-input>
+        <el-form-item prop="confirmPwd">
+          <el-input v-model="ruleForm.confirmPwd" type="password" placeholder="确认新密码" maxlength="16"></el-input>
         </el-form-item>
       </el-form>
       <div class="btns">
-        <el-button :type="typeName" class="submit" style="margin-left: 16px;" @click="changePass">确定</el-button>
+        <el-button :type="typeName" class="submit" style="margin-left: 16px;" @click="changePwd">确定</el-button>
         <el-button @click="$router.go(-1)">取消</el-button>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default {
         callback()
       }
     }
-    const validatePass = (rule, value, callback) => {
+    const validatePwd = (rule, value, callback) => {
       const reg = /^(?=.*\d)(?=.*[a-zA-Z])[\da-zA-Z]{6,16}$/
       if (value === '') {
         callback(new Error('请输入密码'))
@@ -55,11 +55,11 @@ export default {
         callback()
       }
     }
-    const validateconfirmPass = (rule, value, callback) => {
+    const validateconfirmPwd = (rule, value, callback) => {
       const reg = /^(?=.*\d)(?=.*[a-zA-Z])[\da-zA-Z]{6,16}$/
       if (value === '') {
         callback(new Error('请输入密码'))
-      } else if (value !== this.ruleForm.newPass) {
+      } else if (value !== this.ruleForm.newPwd) {
         callback(new Error('两次密码输入不一致'))
       } else if (!reg.test(value)) {
         callback(new Error('密码由6-16位字母和数字组成，请输入正确格式'))
@@ -83,11 +83,12 @@ export default {
       ruleForm: {
         mobile: '',
         smsCode: '',
-        newPass: '',
-        confirmPass: '',
-        countrycode: '',
+        newPwd: '',
+        confirmPwd: '',
+        countrycode: '86',
         email: ''
       },
+      activeIndex: 0,
       codeList: [
         {
           label: '+86', value: '86'
@@ -103,16 +104,16 @@ export default {
       codeTime: 59,
       rules: {
         email: [{ validator: checkEmail, trigger: 'blur' }],
-        newPass: [{ validator: validatePass, trigger: 'blur' }],
+        newPwd: [{ validator: validatePwd, trigger: 'blur' }],
         mobile: [{ validator: checkTel, trigger: 'blur' }],
-        confirmPass: [{ validator: validateconfirmPass, trigger: 'blur' }],
+        confirmPwd: [{ validator: validateconfirmPwd, trigger: 'blur' }],
         smsCode: [{ required: true, message: '请输入短信验证码', trigger: 'blur' }]
       }
     }
   },
   methods: {
     // 修改密码
-    changePass () {
+    changePwd () {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           if (this.ruleForm.countrycode === '') {
@@ -165,8 +166,8 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.forgot-pass{
+<style lang="less" scoped>
+.forgot-pwd{
   position: absolute;
   top: 0;
   left: 0;
@@ -176,9 +177,7 @@ export default {
   .logo {
     width: 335px;
     height: 60px;
-    background-image: url('../../assets/images/login-forgot.png');
-    margin: 100px auto;
-    margin-bottom: 0;
+    margin: 100px auto 0;
   }
   .title {
     width: 335px;
@@ -187,8 +186,7 @@ export default {
     font-family:PingFangSC-Semibold,PingFang SC;
     font-weight:600;
     color:rgba(33,33,69,1);
-    margin: 60px auto;
-    margin-bottom: 0;
+    margin: 60px auto 0;
   }
   .content-wrap {
     width: 335px;
@@ -224,8 +222,8 @@ export default {
   }
 }
 </style>
-<style lang="scss">
-.forgot-pass .el-form {
+<style lang="less">
+.forgot-pwd .el-form {
   .el-form-item__content {
     margin-left: 0!important;
   }

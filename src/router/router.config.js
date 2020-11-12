@@ -3,7 +3,7 @@ import BasicLayout from '@/containers/Full'
 // 懒加载路由
 const Login = () => import('@/views/users/Login.vue')
 const NotFind = () => import('@/views/404.vue')
-const ForgotPass = () => import('@/views/users/forgotPass.vue')
+const ForgotPwd = () => import('@/views/users/forgotPass.vue')
 
 
 export const constRouterMap = [
@@ -17,9 +17,9 @@ export const constRouterMap = [
     }
   },
   {
-    path: '/forgotPass',
-    name: 'forgotPass',
-    component: ForgotPass,
+    path: '/forgotPwd',
+    name: 'forgotPwd',
+    component: ForgotPwd,
     hidden: true,
     meta: {
       title: '忘记密码'

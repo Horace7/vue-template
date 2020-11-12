@@ -16,7 +16,7 @@ const createRouter = () => new Router({
 const router = createRouter()
 
 // 路由白名单
-const whiteList = ['Login', 'forgotPass', 'Mobile']
+const whiteList = ['Login', 'forgotpwd', 'Mobile']
 
 export function resetRouter () {
   const newRouter = createRouter()

@@ -2,7 +2,6 @@
   <div class="header" :style="'z-index:' + zIndex">
     <!-- logo -->
     <div class="logo" :class="{'is-active':isActive}" :style="isActive ? 'text-indent: 20px;' : ''">
-      <img src="@/assets/logo.png" alt="" height="28px">
       {{ $t(`index.title`) }}
     </div>
     <!-- 头部导航 -->
@@ -40,7 +39,7 @@
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="changePass">修改密码 </el-dropdown-item>
+              <el-dropdown-item @click.native="changePwd">修改密码 </el-dropdown-item>
               <el-dropdown-item @click.native="logout">退出 </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -55,8 +54,6 @@
       </div>
     </div>
 
-    <!-- 修改密码 -->
-    <change-pass :passVisible="passVisible" @cancel="cancel"></change-pass>
   </div>
 </template>
 
@@ -82,7 +79,7 @@ export default {
       langLogo: langLogo,
       calendar: new Date(),
       isFullScreen: false,
-      passVisible: false,
+      pwdVisible: false,
       zIndex: 10,
       langList: [
         { lang: '中文', type: 'zh_CN' },
@@ -139,25 +136,17 @@ export default {
       window.open(url)
     },
     cancel () {
-      this.passVisible = false
+      this.pwdVisible = false
       this.zIndex = 10
     },
-    changePass () {
-      // this.passVisible = true
+    changePwd () {
+      // this.pwdVisible = true
       // this.zIndex = 10000
-      this.$router.push({ path: '/forgotPass' })
+      this.$router.push({ path: '/forgotpwd' })
     },
     changeDash (val) {
-      console.log(val)
       const item = this.dashboardList.find(temp => temp.id === val)
       this.$store.dispatch('getDashItem', { ...item })
-      // this.$router.push({
-      //   path: '/dashboard/detail',
-      //   query: {
-      //     id: item.id,
-      //     name: item.dashboardName
-      //   }
-      // })
     },
     // 切换语言
     changeLocale (type, index) {
@@ -234,7 +223,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 .header {
   width: 100%;
   height: 60px!important;
@@ -343,7 +332,7 @@ export default {
   }
 }
 </style>
-<style lang="scss">
+<style lang="less">
 .timeBook {
   bottom: 200px;
 }

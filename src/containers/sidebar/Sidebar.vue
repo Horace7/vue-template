@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
   .sidebar {
     background-color: #001529;
     position: fixed;
@@ -128,7 +128,7 @@ export default {
   }
 
   .el-menu-item.is-active,
-  .el-submenu.is-active >>> .el-submenu__title {
+  .el-submenu.is-active .el-submenu__title {
     background: #484e5c !important;
   }
 
@@ -183,7 +183,7 @@ export default {
 
 
 </style>
-<style lang="scss">
+<style lang="less">
 .sidebar {
   .el-menu-item {
     height: 120px!important;

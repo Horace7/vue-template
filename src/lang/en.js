@@ -14,7 +14,7 @@ const en = {
     autoLogin: 'automatic logon'
   },
   index: {
-    title: 'DIGITAL LEAN'
+    title: 'Admin-temp'
   }
 }
 

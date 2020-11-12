@@ -128,7 +128,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
   @media (max-width: 920px) {
     .el-main {
       padding: 0;

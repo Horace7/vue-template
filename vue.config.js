@@ -17,6 +17,15 @@ const cdn = {
 module.exports = {
   // runtimeCompiler: true,
   publicPath: './',
+  devServer: {
+    hot: true,
+    open: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+    liveReload: true
+  },
 
   // webpack相关配置
   chainWebpack: (config) => {
