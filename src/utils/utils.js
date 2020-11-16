@@ -1,18 +1,4 @@
 /**
- * 解析查询字符串参数
- */
-export function parseParameters (string) {
-  string = string || ''
-  const params = {}
-  const pattern = /[?&][A-z0-9_]+=[A-z0-9_.]*/g
-  let result
-  while ((result = pattern.exec(string)) !== null) {
-    params[result[1]] = result[2]
-  }
-  return params
-}
-
-/**
  * 字符串去前后空格
  */
 export function trim (s) {
@@ -27,7 +13,7 @@ export function trimHtml (s) {
 }
 
 /**
- * debounce
+ * debounce 防止抖动
  */
 export function debounce (fn, delay = 500) {
   let timer
@@ -60,20 +46,6 @@ export function isPhone (string) {
 export function isValidPassword (string) {
   const reg = /^(?![0-9]+$)(?![A-z]+$)\S{6,}$/
   return reg.test(string)
-}
-
-export function html2Data (html) {
-  return (html || '')
-    .replace(/span/g, 'ref')
-    .replace(/data-id/g, 'id')
-    .replace(/ class="at"/g, '')
-}
-
-export function data2Html (data) {
-  return (data || '')
-    .replace(/ref/g, 'span')
-    .replace(/id/g, 'data-id')
-    .replace(/<span/g, '<span class="at"')
 }
 
 /**
