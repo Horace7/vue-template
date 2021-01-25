@@ -1,5 +1,4 @@
-# Vue-admin-template
-
+# DNT-admin-template
 # 项目运行指南
 
 - 安装/更新依赖包：`npm install`
