@@ -1,5 +1,5 @@
 {
-  "name": "sk_template",
+  "name": "vue_template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
     "image-webpack-loader": "^7.0.1",
     "js-cookie": "^2.2.1",
     "nprogress": "^0.2.0",
-    "terser-webpack-plugin": "^5.0.3",
+    "terser-webpack-plugin": "^4.2.3",
     "vue": "^2.6.11",
     "vue-i18n": "^8.22.1",
     "vue-router": "^3.2.0",

@@ -86,15 +86,16 @@ module.exports = {
     // 为生产环境修改配置...
     if (process.env.NODE_ENV === 'production') {
       // 忽略生产环境打包的文件
-      config.externals = {
-        'vuex': 'Vuex',
-        'axios': 'axios',
-        'element-ui': 'ELEMENT',
-        'nprogress': 'NProgress',
-        'js-cookie': 'Cookies'
-      }
+      // config.externals = {
+      //   'vuex': 'Vuex',
+      //   'axios': 'axios',
+      //   'element-ui': 'ELEMENT',
+      //   'nprogress': 'NProgress',
+      //   'js-cookie': 'Cookies'
+      // }
       // 去除console来减少文件大小，效果同'UglifyJsPlugin'
       /* eslint-disable no-new */
+      // TerserPlugin 5.0以上版本修改了使用方法,这里还是4.x版本
       new TerserPlugin({
         cache: true,
         parallel: true,
